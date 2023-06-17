@@ -17,3 +17,20 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+
+
+
+// Batch:BSCS  2019-2023(Fall)
+// Project:Query Expansion for code search
+// Team members:3
+// Team Member names: 
+
+
+
+//  Project details
+// search for Query 
+// show result of the query only for Codes 
+// extend Query reasults
