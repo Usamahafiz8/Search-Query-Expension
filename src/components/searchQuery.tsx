@@ -281,7 +281,6 @@ import Autocomplete, {
   AutocompleteInputChangeReason,
 } from "@mui/material/Autocomplete";
 import { top100Films } from "../content/seachResultRelated";
-import Typography from "@mui/material/Typography";
 
 export const QuerySearch: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -289,27 +288,6 @@ export const QuerySearch: React.FC = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [previousSearches, setPreviousSearches] = useState<string[]>([]);
 
-  console.log(suggestions);
-
-  // const handleSelectionChange = (
-  //   event: React.ChangeEvent<{}>,
-  //   value: string | null
-  // ) => {
-  //   setSelectedItem(value);
-  //   if (value) {
-  //     const selectedFilms = top100Films.filter((film) => film.docstring === value);
-  //     if (selectedFilms.length > 0) {
-  //       const selectedCodes = selectedFilms.map((film) => film.code);
-  //       // setCode(selectedCodes.join("\n")); // Combine relevant code into a single paragraph
-  //     } else {
-  //       setCode("");
-  //     }
-
-  //     setPreviousSearches((prevSearches) => [...prevSearches, value]);
-  //   } else {
-  //     setCode(null);
-  //   }
-  // };
   const handleSelectionChange = (
     event: React.ChangeEvent<{}>,
     value: string | null
@@ -399,7 +377,7 @@ export const QuerySearch: React.FC = () => {
             onInputChange={handleInputChange}
             renderInput={(params) => (
               <TextField
-              style={{color:"red"}}
+                style={{ color: "red" }}
                 {...params}
                 label="Search your Query"
                 InputProps={{
@@ -412,63 +390,63 @@ export const QuerySearch: React.FC = () => {
         </div>
       </div>
       {/* show previous search */}
-      {/* <div>
+      <div>
         {selectedItem && (
-          <>
-           <b style={{fontSize:"28px"}}>History</b>
+          <><div style={{marginBottom:"16px"}}>
+
+            <b style={{ fontSize: "28px" }}>History :-</b>
+          </div>
             <div
               style={{
                 width: "100%",
                 display: "flex",
-                flexDirection:"row",
+                flexDirection: "row",
                 flexWrap: "wrap",
                 gap: "4px",
+                
               }}
             >
               {previousSearches.map((search, index) => (
                 <p
                   key={index}
                   style={{
-                    backgroundColor: "lightgreen",
+                    backgroundColor: "#AB7442",
                     borderRadius: "16px",
-                    padding: 8,
-                    color: "green",
+                    padding: 12,
+                    color: "black",
                     margin: 3,
                   }}
                 >
-                  {search},
+                  <b>{search},</b>
                 </p>
               ))}
             </div>
           </>
         )}
-      </div> */}
+      </div>
 
       {/* show matching strings, URL, and code */}
-      <br />
-      <br />
-      <br />
-      <br />
+
       {code.length > 0 && ( // Check if code array is not empty
         <div>
-          <b style={{ fontSize: "24px" }}>Search Results For :</b>
+          <b style={{ fontSize: "24px" }}>Search Results :-</b>
           {suggestions.map((matchingString, index) => (
             <div key={index}>
               <br />
               <div
                 style={{
-                  border: "2px solid green",
+                  border: "2px solid #AB7442",
                   padding: "16px",
                   borderRadius: "16px",
                 }}
               >
-                <b style={{ fontSize: "16px" }}>
+                <b style={{ fontSize: "18px" }}>
                   <b>{matchingString}</b>
                 </b>
                 <pre>{code[index]}</pre>
-                <br />
+                {/* <br /> */}
                 <b>
-                  <a href={top100Films[index].url}>{top100Films[index].url}</a>
+                  {/* <a href={top100Films[index].url}>{top100Films[index].url}</a> */}
                 </b>
               </div>
             </div>
